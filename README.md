@@ -4,7 +4,7 @@ Les objectifs de ce TP sont de s’initier à la programmation Dart en transfér
 
 ## Le langage Dart
 
-Cette partie présente les éléments essentiels à connaître sur Dart. Evidemment, cela ne remplace pas un cours ou la documentation officielle du langage.
+Cette partie présente les éléments essentiels à connaître sur Dart. Évidemment, cela ne remplace pas un cours ou la documentation officielle du langage.
 
 ### Présentation
 
@@ -39,7 +39,7 @@ Suivant les langages de programmation, il existe plusieurs manières de considé
 - Typage statique : il consiste à demander au programmeur de déclarer expressément chaque variable en indiquant son type. Exemples de langage à typage statique : C, C++, Java, C#
 - Typage dynamique : il consiste à laisser l’interpréteur réaliser cette opération de typage « à la volée » lors de l’exécution du code. C’est la valeur affectée à la variable qui précisera son type. Exemples de langage à typage dynamique : PHP, Perl, Python, Javascript, bash (_shell_ Linux)
 - Typage fort : Un langage de programmation est dit fortement typé lorsqu’il garantit que les types de données employés décrivent correctement les données manipulées. Exemples de langage fortement typé : C++, Java, C#, Python
-- Typage faible : Un langage de programmation est dit faiblement typé lorsqu’il ne considère pas comme une erreur les changements de types. Exemples de langage faiblement typé : PHP, Javascript, C (car il accepte les transtypages implicites comme par exemple `int` vers `short`)
+- Typage faible : Un langage de programmation est dit faiblement typé lorsqu’il ne considère pas comme une erreur les changements de types. Exemples de langage faiblement typé : PHP, Javascript, C (car il accepte les transtypages implicites comme `int` vers `short`)
 
 Le langage Dart est doté d’un **typage fort**.
 
@@ -77,14 +77,18 @@ main() {
   print(b is double);
   print(c is String);
   print(d is bool);
+
+  // cast voir l'opérateur as
 }
 ```
 
+> Un programme Dart doit posséder une fonction `main()`.
+
 ### La syntaxe
 
-Le langage Dart utilise la syntaxe du lanage C.
+Le langage Dart utilise la syntaxe du langage C.
 
-> Un programme Dart doit posséder une fonction `main()`.
+> La partie POO emprunte des notions à Java.
 
 ### Interprétation de code POO
 
@@ -128,6 +132,8 @@ void main() {
   print(distance);
 }
 ```
+
+> Contrairement à d'autres langages POO, Dart ne possède pas les visibilités `public`, `private` ou `protected`. Par contre, il est possible de préfixer les variables membres (attribut) avec un '`_`' pour la déclarer privée. Attention, ici privé ne signifie pas que le membre est disponible uniquement pour la classe dans lequel il se trouve, mais qu'il est accessible dans le fichier (et non accessible aux autres fichiers).
 
 Question 1. Qu’est-ce que `Point` ?
 
@@ -201,11 +207,70 @@ main() {
 
 ### Travail demandé
 
-## Voir aussi : Flutter
+Pour l’écriture d’un programme orientée objet en Dart, on désire disposer du concept de `Boisson`.
 
-Google a introduit **Flutter** pour le développement d'applications mobiles natives sur Android et iOS. Flutter est un SDK d'application mobile, complet avec un cadre de travail, des _widgets_ et des outils, qui donne aux développeurs un moyen de construire et de déployer des applications mobiles, écrites en **Dart**. 
+Une `Boisson` doit posséder un intitulé et un prix. Il est possible d’obtenir l'intitulé ainsi que le prix de cette solde. Lorsque l’on crée une boisson, il est possible de préciser son intitulé et son prix sinon elle aura des valeurs nulles par défaut (`''` pour l'intitulé).
 
-> Flutter fonctionne avec Firebase et d'autres SDK d'applications mobiles, et est open source.
+Fournir un programme `boisson.dart` qui permet de répondre aux questions suivantes :
+
+Question 7. Implémenter la classe `Boisson`.
+
+Question 8. Instancier un objet `boisson` en utilisant le constructeur par défaut et un objet `cafe` dont l'intitulé est "Café" et le prix fixé à `0.35`.
+
+Question 9. Donner l’instruction qui permet d’afficher simplement le prix et l'intitulé du `cafe`.
+
+Question 10. Afficher `boisson` et `cafe` avec la méthode `affiche()`.
+
+## Voir aussi
+
+### Dart
+
+- Les bases du langage : https://dart.dev/guides/language/language-tour
+
+- Particularités du langage : https://dart.dev/codelabs/dart-cheatsheet
+
+Exemple : [fat-arrow-shorthand.dart](src/fat-arrow-shorthand.dart)
+
+- Fonction anonyme (_anonymous_, parfois nommée _lambda_ ou _closure_)
+
+```dart
+([[Type] param1[, …]]) {
+  codeBlock;
+};
+```
+
+Exemple : [anonymous.dart](src/anonymous.dart)
+
+- Programmation asynchrone : https://dart.dev/codelabs/async-await
+
+  - opération synchrone : une opération synchrone empêche les autres opérations de s'exécuter jusqu'à ce qu'elle se termine.
+  - fonction synchrone : une fonction synchrone n'exécute que des opérations synchrones.
+  - opération asynchrone : une fois lancée, une opération asynchrone permet à d'autres opérations de s'exécuter avant qu'elle ne se termine.
+  - fonction asynchrone : une fonction asynchrone effectue au moins une opération asynchrone et peut également effectuer des opérations synchrones.
+
+Dart fournit une classe `Future` qui représente le résultat d'une opération asynchrone. Le résultat peut avoir deux états : complet (l'opération asynchrone s'est terminée avec succès et a retourné une valeur ou a généré une erreur) ou incomplet (en attente que l'opération asynchrone se termine ou génère une erreur).
+
+Le type `T` de la valeur retournée est indiqué comme ceci : `Future<T>` ou `Future<void>` s'il n'y a pas de valeur.
+
+Pour définir une fonction asynchrone, il faut placer le mot clé `async` devant le corps de la fonction :
+
+```dart
+void foo() async { ··· }
+```
+
+Il est possible d'utiliser le mot clé `await` pour obtenir le résultat complété d'une fonction asynchrone :
+
+```dart
+print(await foo());
+```
+
+Exemples : [future.dart](src/future.dart), [async-await.dart](src/async-await.dart) et [future-then.dart](src/future-then.dart)
+
+### Flutter
+
+Google a introduit **Flutter** pour le développement d'applications mobiles natives sur Android et iOS. Flutter est un SDK d'application mobile, complet avec un cadre de travail, des _widgets_ et des outils, qui donne aux développeurs un moyen de construire et de déployer des applications mobiles, écrites en **Dart**.
+
+> Flutter fonctionne avec Firebase et d'autres SDK d'applications mobiles et est open source.
 
 Installation : https://docs.flutter.dev/get-started/install/
 
@@ -247,6 +312,7 @@ Il existe de nombreux sites web qui fournissent des EDI (Environnement de Dével
 
 Quelques sites :
 
+- DartPad : https://dartpad.dev/
 - Coding Ground For Developers : https://www.tutorialspoint.com/codingground.htm pour tout !
   - Dart : https://www.tutorialspoint.com/execute_dart_online.php
   - Markdown : https://www.tutorialspoint.com/online_markdown_editor.php

@@ -14,7 +14,7 @@ class Point {
         y = 0;
 
   affiche() {
-    print("[${x},${y}]");
+    print("[$x,$y]");
   }
 
   num distance(Point p) {
