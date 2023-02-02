@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "TestBoissonDefault",
+      "setup": "",
+      "run": "dart test/tu1.dart",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "TestBoissonAccesseur",
+      "setup": "",
+      "run": "dart test/tu2.dart",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    }
+  ]
+}
