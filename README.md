@@ -1,8 +1,27 @@
 <img alt="points bar" align="right" height="36" src="../../blob/badges/.github/badges/points-bar.svg" />
 
+![](https://img.shields.io/badge/Github-Classroom-green.svg) ![Dart Badge](https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=fff&style=plastic)
+
 # TP POO : DART
 
+- [TP POO : DART](#tp-poo--dart)
+  - [Le langage Dart](#le-langage-dart)
+    - [Présentation](#présentation)
+    - [Le typage](#le-typage)
+    - [La syntaxe](#la-syntaxe)
+    - [Interprétation de code POO](#interprétation-de-code-poo)
+  - [Travaux pratiques](#travaux-pratiques)
+    - [Pré-requis](#pré-requis)
+    - [Travail demandé](#travail-demandé)
+  - [Voir aussi](#voir-aussi)
+    - [Dart](#dart)
+    - [Flutter](#flutter)
+  - [Tests unitaires](#tests-unitaires)
+  - [Bac à sable et développement en ligne](#bac-à-sable-et-développement-en-ligne)
+
 Les objectifs de ce TP sont de s’initier à la programmation Dart en transférant ses connaissances de la programmation orientée objet.
+
+> Pour les enseignants, ceci est un "petit" devoir pour [Github Classroom](https://btssn-lasalle84.github.io/guides-developpement-logiciel/guide-classroom.html). Il montre l'utilisation des tests unitaires en Dart, la notation automatique et l'insertion d'un badge pour l'affichage de la note.
 
 ## Le langage Dart
 
@@ -303,6 +322,34 @@ $ which flutter dart
 > Avec VSCode : https://docs.flutter.dev/get-started/editor?tab=vscode
 
 Documentation : https://docs.flutter.dev/
+
+## Tests unitaires
+
+Installation :
+
+```sh
+$ cat pubspec.yaml
+```sh
+```yaml
+name: tu
+description: ...
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies: {test: ^1.21.4}
+```
+
+```sh
+$ dart pub get
+```
+
+Lancement des tests :
+
+```sh
+$ dart test/tu1.dart
+$ dart test/tu2.dart
+```
 
 ## Bac à sable et développement en ligne
 
