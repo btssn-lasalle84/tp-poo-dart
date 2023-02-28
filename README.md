@@ -329,7 +329,7 @@ Installation :
 
 ```sh
 $ cat pubspec.yaml
-```sh
+```
 ```yaml
 name: tu
 description: ...
